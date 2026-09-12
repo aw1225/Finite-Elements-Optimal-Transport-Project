@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and caches
+.venv/
+venv/
+env/
+.cache/
+.pyop2_cache/
+.firedrake/
+job_cache/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*Zone.Identifier
+*:Zone.Identifier
+NUL
+
+# Generated numerical fields
+*.vtu
+*.vtk
+*.pvtu
+*.pvd
+*.pvsm
+*.xdmf
+*.h5
+*.hdf5
+
+# Meshes require explicit review
+*.msh
+
+# Batch output and logs
+*.OU
+*.ER
+*.o[0-9]*
+*.e[0-9]*
+*.log
+stdout_forced.txt
+stderr_forced.txt
+petsc_log_view.txt
+
+# Archives and staging
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*_stage/
+*_archive/
+stage/
+staging/
+
+# Local and private results
+raw_results/
+results/raw/
+results/private/
+scratch/
+tmp/
+
+# Office temporary files
+~$*
+*.tmp
+*.bak
+*.orig
+*.rej
