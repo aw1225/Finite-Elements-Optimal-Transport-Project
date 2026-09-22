@@ -47,6 +47,9 @@ institution-specific execution details are not stored in normal Git history.
 - [Visualization assets](docs/visualization-assets.md)
 - [Evidence archive index](docs/evidence-archive-index.md)
 - [Reproducibility guide](docs/reproducibility.md)
+- [Repository manifest](docs/repository-manifest.md)
+- [Source curation plan](docs/source-curation-plan.md)
+- [Release checklist](docs/release-checklist.md)
 
 ## Status
 
