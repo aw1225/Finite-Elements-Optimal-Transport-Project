@@ -6,14 +6,14 @@ This page tracks which code families should be included before the repository is
 
 | Family | Intended location | Status | Notes |
 | --- | --- | --- | --- |
-| Core heat-kernel Sinkhorn utilities | `src/ot_fas/core/` | pending | Shared utilities remain embedded in historical drivers; extract only if needed. |
+| Core heat-kernel Sinkhorn utilities | `src/ot_fas/core/` | deferred | Shared utilities remain embedded in historical drivers; extract only if reuse or packaging becomes necessary. |
 | Translation reference-validation drivers | `src/ot_fas/benchmarks/translation/` | copied | Includes v44 exact-error, v46 discrete-reference, and v51 four-level drivers. |
 | Affine rotated-map drivers | `src/ot_fas/benchmarks/affine/` | copied | Canonical v25/v26 drivers plus post-review m-check, W-check, and m=32 controls copied. |
-| Annulus and disk-to-annulus drivers | `src/ot_fas/benchmarks/annulus/` | partial | Annulus v45 copied; T3 lives under stress-test drivers. |
+| Annulus and disk-to-annulus drivers | `src/ot_fas/benchmarks/annulus/` and `src/ot_fas/stress_tests/t3/` | copied | Annulus v45 and T3 disk-to-annulus drivers are copied. |
 | Frozen T1--T5 stress tests | `src/ot_fas/stress_tests/` | copied | T1--T5 drivers copied, with T4 v50 extracted from the complete suite archive. |
 | Post-review T4 diagnostics | `src/ot_fas/postreview/t4/` | copied | Recovered helper plus supplemental and adjoint wrappers copied. |
 | CSV/VTP map conversion utilities | `scripts/visualization/` | copied | `csv_transport_to_vtp.py` copied. |
-| Evidence collectors | `scripts/collectors/` and `results/provenance/` | partial | Core collectors copied for translation, annulus, affine controls, T3, T4, and T5. RQ1 matched-refinement was an inline collection pass; its PBS wrapper and compact job provenance are now recorded instead of a standalone collector. |
+| Evidence collectors | `scripts/collectors/` and `results/provenance/` | copied/provenance-recorded | Core collectors copied for translation, annulus, affine controls, T3, T4, and T5. RQ1 matched-refinement was an inline collection pass; its PBS wrapper and compact job provenance are recorded instead of a standalone collector. |
 
 ## Exclude from source tree
 
