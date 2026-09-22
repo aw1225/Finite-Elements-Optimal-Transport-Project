@@ -29,20 +29,19 @@ The following post-review controls have archived evidence packages outside the n
 
 These packages should be cited as evidence archives rather than copied into the repository wholesale.
 
-## Known code-audit gap
+## Recovered T4 diagnostic helper
 
-One post-review T4 helper module remains missing from the local reading bundle:
+The post-review T4 helper module has been recovered and copied into the curated source tree:
 
 ```text
-t4_diag_common.py
-T4_diag_common.py
+src/ot_fas/postreview/t4/t4_diag_common.py
 ```
 
-The frozen T4 v50 driver, supplemental wrapper logic, submitted job evidence, and output summaries are present. However, any functions imported from this missing helper, such as adjoint-audit or state-diagnostic helpers, should not be described as line-by-line audited until that file is recovered.
+This closes the previously recorded code-level gap for the T4 supplemental diagnostics. The helper provides the shared routines imported by the T4 wrappers, including frozen-source SHA checking, adjoint diagnostics, state diagnostics, barycentric-map diagnostics, and heat-count helpers.
 
 Recommended wording:
 
-> The frozen T4 v50 implementation and submitted supplemental evidence are present and auditable. The only unresolved code-level gap is the helper module `t4_diag_common.py`, imported by the post-review diagnostics; its internal helper implementations were not present in the recovered reading bundle.
+> The frozen T4 v50 implementation, submitted supplemental evidence, and recovered helper module `t4_diag_common.py` are present in the curated repository. The helper imports and SHA-checks the frozen v50 source before running post-review diagnostics; it should be treated as diagnostic support code, not as a replacement for the frozen scientific driver.
 
 ## Precision constraints for public documentation
 
