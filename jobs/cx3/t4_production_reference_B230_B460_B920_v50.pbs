@@ -1,0 +1,53 @@
+#!/bin/bash
+#PBS -N t4_highfreq_3L
+#PBS -l select=1:ncpus=4:mpiprocs=4:mem=450gb:cpu_type=icelake
+#PBS -l walltime=05:00:00
+#PBS -o /rds/general/user/aw1225/ephemeral/ot_project_profile/logs/
+#PBS -e /rds/general/user/aw1225/ephemeral/ot_project_profile/logs/
+
+set -euo pipefail
+unset LC_ALL
+module purge
+module load tools/dev
+module load Firedrake/2025.10.2-foss-2025b
+export OMP_NUM_THREADS=1
+
+CODE_ROOT="$HOME/ot_project"
+RESULT_ROOT="/rds/general/user/aw1225/ephemeral/ot_project_profile"
+SRC="$CODE_ROOT/code_FAS/cx3_t4_high_frequency_square_stress_v50.py"
+RUN_ID="t4_high_frequency_square_reference_frozen_3L_B230_B460_B920_v50_${PBS_JOBID}"
+RESULT_DIR="$RESULT_ROOT/results/$RUN_ID"
+EXPECTED_SHA="f59b123df8a4902a04390c5b267b28a82007ba3963b9d0015fc80b5ad86ca269"
+
+mkdir -p "$RESULT_DIR"
+ACTUAL_SHA="$(sha256sum "$SRC" | awk '{print $1}')"
+[[ "$ACTUAL_SHA" == "$EXPECTED_SHA" ]] || { echo "SHA mismatch: $ACTUAL_SHA != $EXPECTED_SHA" >&2; exit 2; }
+cp "$SRC" "$RESULT_DIR/source_used.py"
+printf '%s  %s\n' "$ACTUAL_SHA" "$SRC" > "$RESULT_DIR/source_sha256.txt"
+
+export RESULT_DIR
+export FAS_RUN_MODE=reference_fas_to_tol
+export T4_SUPPORT_GRID_N=256
+export T4_SUPPORT_HALF_WIDTH_PHYSICAL=0.5
+export T4_OSC_MODE=6
+export T4_OSC_BETA=8.0
+export FAS_BRIDGE_COARSE_N=230
+export FAS_N_BRIDGE_REFINEMENTS=2
+export FAS_CYCLES=8
+export FAS_PRE_SMOOTH=2
+export FAS_COARSE_SMOOTH=7
+export FAS_POST_SMOOTH=1
+export FAS_CORRECTION_DAMPING=1.0
+export FAS_COARSE_TAU_RATIO=1.0
+export FAS_TAU_FINE_PHYSICAL=2.373046875e-3
+export FAS_TARGET_RESIDUAL=4.31e-3
+export FAS_REF_CHECK_BLOCK=6
+export FAS_REF_MIN_FINE_UPDATES=60
+export FAS_REF_MAX_FINE_UPDATES=240
+export FAS_REF_RESIDUAL_TARGET=1e-6
+export FAS_REF_CHANGE_REL_TOL=1e-8
+export FAS_REF_STABLE_CHECKS=2
+export FAS_WRITE_VTK=0
+
+cd "$RESULT_DIR"
+mpiexec -n 4 python -B -u "$SRC"

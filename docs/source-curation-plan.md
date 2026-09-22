@@ -6,14 +6,14 @@ This page tracks which code families should be included before the repository is
 
 | Family | Intended location | Status | Notes |
 | --- | --- | --- | --- |
-| Core heat-kernel Sinkhorn utilities | `src/ot_fas/core/` | pending | Shared log-domain Sinkhorn, heat-operator wrappers, gauge handling, and residual utilities. |
-| Translation reference-validation drivers | `src/ot_fas/benchmarks/translation/` | pending | Include the source used for the discrete-reference story and any exact-error trajectory collectors. |
-| Affine rotated-map drivers | `src/ot_fas/benchmarks/affine/` | pending | Include canonical affine/FAS drivers and small post-review robustness collectors. |
-| Annulus and disk-to-annulus drivers | `src/ot_fas/benchmarks/annulus/` | pending | Include frozen annulus, T3, and associated map-export support where compact. |
-| Frozen T1--T5 stress tests | `src/ot_fas/stress_tests/` | pending | Include the frozen production drivers, not exploratory duplicates. |
-| Post-review T4 diagnostics | `src/ot_fas/postreview/t4/` | started | `t4_diag_common.py` has been recovered and added locally. |
-| CSV/VTP map conversion utilities | `scripts/` or `src/ot_fas/visualization/` | pending | Include `csv_transport_to_vtp.py` and any small rendering helpers used for thesis figures. |
-| Evidence collectors | `scripts/collectors/` | pending | Include compact collectors for m-check, W-check, m32 control, RQ1 matched refinement, and T4 supplemental diagnostics. |
+| Core heat-kernel Sinkhorn utilities | `src/ot_fas/core/` | pending | Shared utilities remain embedded in historical drivers; extract only if needed. |
+| Translation reference-validation drivers | `src/ot_fas/benchmarks/translation/` | copied | Includes v44 exact-error, v46 discrete-reference, and v51 four-level drivers. |
+| Affine rotated-map drivers | `src/ot_fas/benchmarks/affine/` | partial | Post-review m-check, W-check, and m=32 controls copied; canonical v25/v26 affine scaling driver still to add if desired. |
+| Annulus and disk-to-annulus drivers | `src/ot_fas/benchmarks/annulus/` | partial | Annulus v45 copied; T3 lives under stress-test drivers. |
+| Frozen T1--T5 stress tests | `src/ot_fas/stress_tests/` | copied | T1--T5 drivers copied, with T4 v50 extracted from the complete suite archive. |
+| Post-review T4 diagnostics | `src/ot_fas/postreview/t4/` | copied | Recovered helper plus supplemental and adjoint wrappers copied. |
+| CSV/VTP map conversion utilities | `scripts/visualization/` | copied | `csv_transport_to_vtp.py` copied. |
+| Evidence collectors | `scripts/collectors/` | partial | Core collectors copied for translation, annulus, affine controls, T3, T4, and T5; RQ1 matched-refinement collector can still be added. |
 
 ## Exclude from source tree
 
