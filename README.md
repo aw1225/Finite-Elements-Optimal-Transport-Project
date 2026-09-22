@@ -45,6 +45,8 @@ institution-specific execution details are not stored in normal Git history.
 - [Experiment status](docs/experiment-status.md)
 - [Code audit status](docs/code-audit-status.md)
 - [Visualization assets](docs/visualization-assets.md)
+- [Evidence archive index](docs/evidence-archive-index.md)
+- [Reproducibility guide](docs/reproducibility.md)
 
 ## Status
 
