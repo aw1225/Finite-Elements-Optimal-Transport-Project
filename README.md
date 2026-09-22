@@ -39,6 +39,13 @@ The curated repository will contain:
 Large field files, raw solver output, machine caches, temporary archives, and
 institution-specific execution details are not stored in normal Git history.
 
+## Companion documentation
+
+- [Thesis-to-repository map](docs/thesis-to-repository-map.md)
+- [Experiment status](docs/experiment-status.md)
+- [Code audit status](docs/code-audit-status.md)
+- [Visualization assets](docs/visualization-assets.md)
+
 ## Status
 
 This repository is being assembled from a provenance-checked private research
