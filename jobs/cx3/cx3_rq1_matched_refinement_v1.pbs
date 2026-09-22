@@ -1,0 +1,55 @@
+#!/bin/bash
+#PBS -N rq1_match
+#PBS -q v1_medium24a
+#PBS -l select=1:ncpus=4:mpiprocs=4:mem=128gb:cpu_type=icelake
+#PBS -l walltime=04:00:00
+#PBS -j oe
+
+set -euo pipefail
+
+module purge
+module load tools/dev
+module load Firedrake/2025.10.2-foss-2025b
+
+cd "$HOME/ot_project"
+
+: "${RQ1_CASE:?Set RQ1_CASE=annulus or translation}"
+: "${RQ1_COARSE_N:?Set RQ1_COARSE_N=230 or 460}"
+: "${RQ1_RUN_ID:?Set RQ1_RUN_ID}"
+
+RUN_ROOT="/rds/general/user/$USER/ephemeral/ot_project_profile"
+RESULT_DIR="$RUN_ROOT/results/${RQ1_RUN_ID}_${PBS_JOBID:-no_pbs_jobid}"
+mkdir -p "$RESULT_DIR"
+
+if [ "$RQ1_CASE" = "annulus" ]; then
+  PYTHON_SOURCE="$HOME/ot_project/notes_FAS/frozen_sources/annulus_v27_certified_for_fmg_2026-09-05/cx3_annulus_radial_fas_threelevel_audit_v27.py"
+elif [ "$RQ1_CASE" = "translation" ]; then
+  PYTHON_SOURCE="$HOME/ot_project/notes_FAS/frozen_sources/disk_v28_final_source_2026-09-03/cx3_translation_fas_threelevel_scaling_v28.py"
+else
+  echo "Unknown RQ1_CASE=$RQ1_CASE"
+  exit 2
+fi
+
+cp -p "$PYTHON_SOURCE" "$RESULT_DIR/source_used.py"
+sha256sum "$PYTHON_SOURCE" > "$RESULT_DIR/source_sha256.txt"
+
+export RESULT_DIR
+export FAS_RUN_MODE=fas_cold
+export FAS_CYCLES=5
+export FAS_BRIDGE_COARSE_N="$RQ1_COARSE_N"
+export FAS_N_BRIDGE_REFINEMENTS=1
+export FAS_COARSE_TAU_RATIO=1.0
+export FAS_TARGET_RESIDUAL=4.31e-3
+
+echo "RQ1_CASE=$RQ1_CASE"
+echo "RQ1_COARSE_N=$RQ1_COARSE_N"
+echo "RQ1_RUN_ID=$RQ1_RUN_ID"
+echo "RESULT_DIR=$RESULT_DIR"
+echo "PYTHON_SOURCE=$PYTHON_SOURCE"
+echo "SOURCE_SHA=$(sha256sum "$PYTHON_SOURCE" | awk '{print $1}')"
+echo "FAS_RUN_MODE=$FAS_RUN_MODE"
+echo "FAS_CYCLES=$FAS_CYCLES"
+echo "FAS_N_BRIDGE_REFINEMENTS=$FAS_N_BRIDGE_REFINEMENTS"
+echo "FAS_COARSE_TAU_RATIO=$FAS_COARSE_TAU_RATIO"
+
+mpiexec -n 4 python3 -B -u "$PYTHON_SOURCE" > "$RESULT_DIR/stdout_forced.txt" 2> "$RESULT_DIR/stderr_forced.txt"

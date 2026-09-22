@@ -13,7 +13,7 @@ This page tracks which code families should be included before the repository is
 | Frozen T1--T5 stress tests | `src/ot_fas/stress_tests/` | copied | T1--T5 drivers copied, with T4 v50 extracted from the complete suite archive. |
 | Post-review T4 diagnostics | `src/ot_fas/postreview/t4/` | copied | Recovered helper plus supplemental and adjoint wrappers copied. |
 | CSV/VTP map conversion utilities | `scripts/visualization/` | copied | `csv_transport_to_vtp.py` copied. |
-| Evidence collectors | `scripts/collectors/` | partial | Core collectors copied for translation, annulus, affine controls, T3, T4, and T5; RQ1 matched-refinement collector can still be added. |
+| Evidence collectors | `scripts/collectors/` and `results/provenance/` | partial | Core collectors copied for translation, annulus, affine controls, T3, T4, and T5. RQ1 matched-refinement was an inline collection pass; its PBS wrapper and compact job provenance are now recorded instead of a standalone collector. |
 
 ## Exclude from source tree
 

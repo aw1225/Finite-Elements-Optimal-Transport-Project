@@ -9,7 +9,7 @@ This page records the external evidence archives that support the thesis compani
 | Heat-substep endpoint check | `notes_FAS/affine_mcheck_evidence_2026-09-14.tar.gz` | Checks sensitivity of affine endpoint quantities to heat substep count `m`. |
 | Periodic-width check | `notes_FAS/affine_wcheck_evidence_2026-09-14.tar.gz` | Checks robustness to periodic-domain width `W` under approximately fixed bridge spacing. |
 | `m=32` FAS refinement control | `notes_FAS/affine_fas_m32_refinement_control_evidence_2026-09-14.tar.gz` | Tests whether refinement-insensitive FAS contraction observed at `m=16` persists at `m=32`. |
-| Matched RQ1 refinement | `notes_FAS/rq1_matched_refinement_evidence_2026-09-14.tar.gz` | First-five-cycle matched refinement comparison for annulus and translation bridge pairs. |
+| Matched RQ1 refinement | `notes_FAS/rq1_matched_refinement_evidence_2026-09-14.tar.gz` | First-five-cycle matched refinement comparison for annulus and translation bridge pairs. Compact job provenance is recorded in `results/provenance/rq1_matched_refinement_jobs_2026-09-14.csv`. |
 | T4 supplemental diagnostics | `notes_FAS/t4_supplemental_evidence_2026-09-16.tar.gz` | Post-review T4 reference, mechanism, adjoint, and state diagnostics. |
 
 ## Real-transport map exports
