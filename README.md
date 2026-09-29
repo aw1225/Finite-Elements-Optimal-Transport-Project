@@ -50,6 +50,7 @@ institution-specific execution details are not stored in normal Git history.
 - [Repository manifest](docs/repository-manifest.md)
 - [Source curation plan](docs/source-curation-plan.md)
 - [Release checklist](docs/release-checklist.md)
+- [Compact result summaries](results/summaries/README.md)
 
 ## Status
 
@@ -59,4 +60,4 @@ record, and numerical summaries have been verified.
 
 ## License and citation
 
-License and citation metadata will be finalized before public release.
+Citation metadata is provided in [CITATION.cff](CITATION.cff). No open-source license is currently granted; see [LICENSE.md](LICENSE.md).

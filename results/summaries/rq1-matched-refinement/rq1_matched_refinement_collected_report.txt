@@ -1,0 +1,8 @@
+=== RQ1 matched refinement summary ===
+annulus B230_B460 R0=1.02089029581 R5=0.00763937419471 rho=0.375677981
+annulus B460_B920 R0=1.02048619105 R5=0.00765263100102 rho=0.375838034
+translation B230_B460 R0=1.60862640322 R5=0.000799551857376 rho=0.218412902
+translation B460_B920 R0=1.6087798304 R5=0.000796024600916 rho=0.218215691
+annulus rho relative spread = 0.043%
+translation rho relative spread = 0.090%
+Wrote /rds/general/user/aw1225/home/ot_project/notes_FAS/rq1_matched_refinement_2026-09-14/rq1_matched_refinement_summary.csv

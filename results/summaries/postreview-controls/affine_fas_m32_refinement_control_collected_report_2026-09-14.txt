@@ -1,0 +1,10 @@
+=== m=32 affine FAS refinement control ===
+B230_B460 rho_0_to_5=0.39856286 r5=0.0126485609 reached_target=0
+  m16 rho=0.317541427  relative change=22.628%
+B460_B920 rho_0_to_5=0.398642233 r5=0.0126569125 reached_target=0
+  m16 rho=0.317565946  relative change=22.640%
+m32 cross-refinement rho relative spread = 0.020%
+m32 max normalized-curve relative spread (cycles 1..5) = 0.132%
+Preregistered descriptive thresholds: rho spread <=5%%; normalized-curve spread <=10%%.
+INTERPRETATION: supports approximately refinement-insensitive FAS contraction at m=32 over B230->B460 and B460->B920.
+Wrote affine_fas_m32_refinement_control_summary.csv

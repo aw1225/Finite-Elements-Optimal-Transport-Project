@@ -1,0 +1,13 @@
+Matched physical spacing h = 0.008695652173913044
+Primary W=4 -> W=5 relative changes:
+  map_l2_physical: 9.119694e-04
+  jacobian_l2: 3.262566e-04
+  monge_defect_physical: 4.054182e-03
+  rms_conditional_spread_physical: 2.025041e-03
+  full_residual_p: 9.433330e-02
+  full_residual_q: 6.702129e-01
+Smaller-domain W=3 -> W=5 relative changes:
+  map_l2_physical: 2.474244e-03
+  jacobian_l2: 6.007602e-04
+  monge_defect_physical: 7.737601e-03
+Wrote affine_wcheck_comparison.csv

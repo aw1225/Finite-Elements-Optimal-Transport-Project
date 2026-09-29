@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying MSc research project."
+type: software
+title: "Efficient Multiscale Finite-Element Solvers for Entropic Optimal Transport Maps"
+authors:
+  - family-names: "Wani"
+    given-names: "Absar"
+repository-code: "https://github.com/aw1225/Finite-Elements-Optimal-Transport-Project"
+date-released: "2026-09-22"
+keywords:
+  - optimal transport
+  - finite elements
+  - entropic regularisation
+  - Full Approximation Scheme
+  - heat kernel
